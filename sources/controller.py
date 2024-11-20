@@ -5,8 +5,11 @@ def start_quiz():
     root = Tk()
     root.title("General Knowledge Quiz")
     root.geometry("500x150")
+    myLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
+    myLabel.pack()
+    myButton = Button(root, text="Start", font="Arial 25")
+    myButton.pack()
     root.mainloop()
-    myLabel
 
 def update_timer():
     # TODO
