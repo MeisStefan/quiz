@@ -9,7 +9,14 @@ def start_quiz():
     myLabel.pack()
     myButton = Button(root, text="Start", font="Arial 25")
     myButton.pack()
+    menubar = Menu(root)
+    root.config(menu=menubar)
+    file_menu = Menu(menubar, tearoff=False)
+    file_menu.add_command(label='Exit', command=root.destroy)
+    file_menu.add_command(label='Restart')
+    menubar.add_cascade(label="Menu", menu=file_menu)
     root.mainloop()
+    pass
 
 def update_timer():
     # TODO
