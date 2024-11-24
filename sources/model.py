@@ -1,3 +1,6 @@
+from tkinter import *
+root = Tk()
+
 class QuizInterface:
     def __init__(self, label, button):
         self.label = label

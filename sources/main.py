@@ -1,5 +1,4 @@
-from tkinter import *
-from model import *
+
 from controller import *
 
 def createInterface(root):
@@ -7,7 +6,7 @@ def createInterface(root):
     root.geometry("500x150")
     myLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
     myLabel.pack()
-    myButton = Button(root, text="Start", font="Arial 25")
+    myButton = Button(root, text="Start", font="Arial 25", command=start_quiz)
     myButton.pack()
     menubar = Menu(root)
     root.config(menu=menubar)
@@ -17,7 +16,7 @@ def createInterface(root):
     menubar.add_cascade(label="Menu", menu=file_menu)
     return QuizInterface(myLabel, myButton)
 
-root = Tk()
+
 interface = createInterface(root)
 root.mainloop()
 
