@@ -1,4 +1,3 @@
-
 from controller import *
 
 def createInterface(root):
@@ -19,4 +18,3 @@ def createInterface(root):
 
 interface = createInterface(root)
 root.mainloop()
-

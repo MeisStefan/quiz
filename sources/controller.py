@@ -1,4 +1,3 @@
-
 from model import *
 
 def start_quiz():
@@ -12,10 +11,7 @@ def start_quiz():
     myButton3.pack()
     myButton4 = Button(root, text="un astronaut", font="Arial 15")
     myButton4.pack()
-
-def update_timer():
-    # TODO
-    pass
+    interface.startButton.grid_forget()
 
 
 def disable_buttons():

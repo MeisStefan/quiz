@@ -2,6 +2,9 @@ from tkinter import *
 root = Tk()
 
 class QuizInterface:
-    def __init__(self, label, button):
+    def __init__(self, label, startButton):
         self.label = label
-        self.button = button
+        self.startButton = startButton
+
+
+interface = QuizInterface(Label(), Button())
