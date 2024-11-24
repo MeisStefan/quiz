@@ -1,4 +1,5 @@
 from tkinter import *
+from model import *
 from controller import *
 
 def createInterface(root):
@@ -14,8 +15,9 @@ def createInterface(root):
     file_menu.add_command(label='Exit', command=root.destroy)
     file_menu.add_command(label='Restart', command=restart_quiz)
     menubar.add_cascade(label="Menu", menu=file_menu)
+    return QuizInterface(myLabel, myButton)
 
 root = Tk()
-createInterface(root)
+interface = createInterface(root)
 root.mainloop()
 
