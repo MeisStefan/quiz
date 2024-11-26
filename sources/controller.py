@@ -56,4 +56,3 @@ def restart_quiz():
 def exit_quiz():
     # TODO
     pass
-
