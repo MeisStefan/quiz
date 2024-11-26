@@ -15,6 +15,5 @@ def createInterface(root):
     menubar.add_cascade(label="Menu", menu=file_menu)
     return QuizInterface(myLabel, myButton)
 
-
 interface = createInterface(root)
 root.mainloop()
