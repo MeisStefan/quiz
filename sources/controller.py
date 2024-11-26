@@ -1,26 +1,17 @@
-from tkinter import *
-
+from model import *
 
 def start_quiz():
-    root = Tk()
-    root.title("General Knowledge Quiz")
-    root.geometry("500x150")
-    myLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
+    myLabel = Label(root, text="Cine e Michael Jackson?", font="Arial 20")
     myLabel.pack()
-    myButton = Button(root, text="Start", font="Arial 25")
-    myButton.pack()
-    menubar = Menu(root)
-    root.config(menu=menubar)
-    file_menu = Menu(menubar, tearoff=False)
-    file_menu.add_command(label='Exit', command=root.destroy)
-    file_menu.add_command(label='Restart')
-    menubar.add_cascade(label="Menu", menu=file_menu)
-    root.mainloop()
-    pass
-
-def update_timer():
-    # TODO
-    pass
+    myButton1 = Button(root, text="un om de stiinta", font="Arial 15")
+    myButton1.pack()
+    myButton2 = Button(root, text="un breakdancer", font="Arial 15")
+    myButton2.pack()
+    myButton3 = Button(root, text="un cantaret faimos", font="Arial 15")
+    myButton3.pack()
+    myButton4 = Button(root, text="un astronaut", font="Arial 15")
+    myButton4.pack()
+    interface.startButton.grid_forget()
 
 
 def disable_buttons():
