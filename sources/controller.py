@@ -1,3 +1,4 @@
+from main import myLabel
 from model import *
 limit = 10
 time = 0
@@ -12,8 +13,8 @@ options = ["Cairo, Paris, Berlin, Roma", "1954, 1345, 1939, 1945","Un navigator,
 correct_answers = ["Cairo", "1939", "Un navigator", "89"]
 
 def start_quiz():
-    myLabel = Label(root, text="Care este capitala Egiptului?", font="Arial 20")
-    myLabel.pack()
+    myLabel2 = Label(root, text="Care este capitala Egiptului?", font="Arial 20")
+    myLabel2.pack()
     myButton1 = Button(root, text="Cairo", font="Arial 15")
     myButton1.pack()
     myButton2 = Button(root, text="Paris", font="Arial 15")
@@ -25,25 +26,12 @@ def start_quiz():
 
 
 def disable_buttons():
-    root.title("Config Method Example")
 
-    myButton1 = Button(root, text="Cairo", command=disable_buttons)
-
-    myButton2 = Button(root, text="Paris", command=disable_buttons)
-
-    myButton3 = Button(root, text="Berlin", command=disable_buttons)
-
-    myButton4 = Button(root, text="Roma", command=disable_buttons)
-
-    myButton1.config(state=DISABLED)
-    myButton2.config(state=DISABLED)
-    myButton3.config(state=DISABLED)
-    myButton4.config(state=DISABLED)
     pass
 
 
 def display_question():
-    # TODO
+
     pass
 
 
@@ -58,12 +46,12 @@ def select_answer():
 
 
 def next_question():
-    # TODO
+
     pass
 
 
 def restart_quiz():
-
+    myLabel.pack_hide()
     pass
 
 

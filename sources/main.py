@@ -1,6 +1,7 @@
 from controller import *
-
-def createInterface(root):
+global myButton1
+global myLabel
+def createInterface():
     root.title("General Knowledge Quiz")
     root.geometry("500x150")
     myLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
@@ -15,5 +16,5 @@ def createInterface(root):
     menubar.add_cascade(label="Menu", menu=file_menu)
     return QuizInterface(myLabel, myButton)
 
-interface = createInterface(root)
+interface = createInterface()
 root.mainloop()
