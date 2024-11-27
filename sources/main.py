@@ -1,10 +1,14 @@
 from controller import *
 
+buttons_list = []
+
 def start_quiz():
     myLabel2 = Label(root, text="Care este capitala Egiptului?", font="Arial 20")
     myLabel2.pack()
     myButton1 = Button(root, text="Cairo", font="Arial 15", command=lambda: select_answer(1))
+    buttons_list.append(myButton1)
     myButton1.pack()
+
     myButton2 = Button(root, text="Paris", font="Arial 15", command=lambda: select_answer(2))
     myButton2.pack()
     myButton3 = Button(root, text="Berlin", font="Arial 15", command=lambda: select_answer(3))
