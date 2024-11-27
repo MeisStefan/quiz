@@ -14,6 +14,8 @@ def start_quiz():
     startButton.pack_forget()
     startLabel.pack_forget()
 
+# am folosit lambda pentru a transmite parametru functiei select_answer care, la randul ei, are transmisa ca parametru command
+
 from tkinter import *
 root = Tk()
 root.title("General Knowledge Quiz")

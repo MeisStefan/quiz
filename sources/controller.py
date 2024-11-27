@@ -1,11 +1,11 @@
-
+current_question = 0
 questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
 
 options = ["Cairo, Paris, Berlin, Roma", "1954, 1345, 1939, 1945","Un navigator, Un extremist, Un lider comunist, Un lider fascist", "88, 1979, 2000, '89"]
 
 correct_answers = ["Cairo", "1939", "Un navigator", "89"]
 
-
+correct_answers_index = [1, 3, 1, 4]
 
 
 def disable_buttons():
@@ -24,12 +24,14 @@ def display_result():
 
 
 def select_answer(answer):
-    print(answer)
-    pass
-
+    if answer == correct_answers_index[current_question]:
+        print("correct")
+    else:
+        print("gresit")
 
 def next_question():
-
+    global current_question
+    current_question += 1
     pass
 
 
