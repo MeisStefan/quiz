@@ -12,13 +12,14 @@ def start_quiz():
     myButton4 = Button(root, text="Roma", font="Arial 15")
     myButton4.pack()
     startButton.pack_forget()
+    startLabel.pack_forget()
 
 from tkinter import *
 root = Tk()
 root.title("General Knowledge Quiz")
-root.geometry("500x150")
-myLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
-myLabel.pack()
+root.geometry("500x300")
+startLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
+startLabel.pack()
 startButton = Button(root, text="Start", font="Arial 25", command=start_quiz)
 startButton.pack()
 menubar = Menu(root)
