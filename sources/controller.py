@@ -1,5 +1,3 @@
-limit = 10
-time = 0
 
 questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
 
@@ -25,8 +23,8 @@ def display_result():
     pass
 
 
-def select_answer():
-    # TODO
+def select_answer(answer):
+    print(answer)
     pass
 
 
