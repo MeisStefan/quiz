@@ -26,9 +26,9 @@ def display_result():
 
 def select_answer(answer):
     if answer == correct_answers_index[current_question]:
-
+        print("correct")
     else:
-
+        print("wrong")
 
 def next_question():
     global current_question
