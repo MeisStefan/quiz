@@ -28,12 +28,12 @@ def display_result():
 
 def select_answer(answer):
     global buttons_list
-    selected_button = buttons_list[answer]
+    selected_button = buttons_list[answer - 1]
     if answer == correct_answers_index[current_question]:
         # daca raspunsul e corect
         selected_button.config(fg="green")
     else:
-        print("wrong")
+        selected_button.config(fg="red")
 
 def next_question():
     global current_question
