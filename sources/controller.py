@@ -20,12 +20,21 @@ def disable_buttons():
 
 
 def display_question():
+    next_question()
+    # shimb numele butoanelor cu noile optiuni
+    global buttons_list
+    for i in range(4):
+        current_button = buttons_list[i]
+        current_button.config(text = "1954")
 
-    pass
+    # schimb numele intrebarii
+    # reactivez butoanele
+    # decolorez toate butoanele
+
 
 
 def display_result():
-    # TODO
+
     pass
 
 
@@ -38,12 +47,11 @@ def select_answer(answer):
     else:
         selected_button.config(disabledforeground="red")
     disable_buttons()
-
+    selected_button.after(2000, display_question)
 
 def next_question():
     global current_question
     current_question += 1
-    pass
 
 
 def restart_quiz():
