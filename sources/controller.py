@@ -1,3 +1,5 @@
+from tkinter.constants import DISABLED
+
 from model import *
 
 current_question = 0
@@ -12,8 +14,9 @@ correct_answers_index = [1, 3, 1, 4]
 
 
 def disable_buttons():
-
-    pass
+   global buttons_list
+   for button in buttons_list:
+        button.config(state=DISABLED)
 
 
 def display_question():
@@ -31,9 +34,11 @@ def select_answer(answer):
     selected_button = buttons_list[answer - 1]
     if answer == correct_answers_index[current_question]:
         # daca raspunsul e corect
-        selected_button.config(fg="green")
+        selected_button.config(disabledforeground="green")
     else:
-        selected_button.config(fg="red")
+        selected_button.config(disabledforeground="red")
+    disable_buttons()
+
 
 def next_question():
     global current_question
