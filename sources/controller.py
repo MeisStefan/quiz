@@ -6,7 +6,7 @@ current_question = 0
 
 questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
 
-options = ["Cairo, Paris, Berlin, Roma", "1954, 1345, 1939, 1945","Un navigator, Un extremist, Un lider comunist, Un lider fascist", "88, 1979, 2000, '89"]
+options = ["Cairo", "Paris", "Berlin", "Roma", "1954", "1345", "1939", "1945","Un navigator", "Un extremist", "Un lider comunist", "Un lider fascist", "88", "1979", "2000", "89"]
 
 correct_answers = ["Cairo", "1939", "Un navigator", "89"]
 
@@ -22,10 +22,17 @@ def disable_buttons():
 def display_question():
     next_question()
     # shimb numele butoanelor cu noile optiuni
+    global current_question
+    global options
+    start = 4 * current_question
+    end = start + 4
+    current_question_options = options[start:end:]
+    print(current_question_options)
+
     global buttons_list
     for i in range(4):
         current_button = buttons_list[i]
-        current_button.config(text = "1954")
+        current_button.config(text = current_question_options[i])
 
     # schimb numele intrebarii
     # reactivez butoanele
