@@ -1,6 +1,6 @@
 from controller import *
 
-buttons_list = []
+from model import *
 
 def start_quiz():
     myLabel2 = Label(root, text="Care este capitala Egiptului?", font="Arial 20")
@@ -29,7 +29,6 @@ root.geometry("500x300")
 startLabel = Label(root, text="General Knowledge Quiz", font="Arial 25")
 startLabel.pack()
 startButton = Button(root, text="Start", font="Arial 25", command=start_quiz)
-buttons_list.append(startButton)
 startButton.pack()
 menubar = Menu(root)
 root.config(menu=menubar)

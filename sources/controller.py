@@ -1,3 +1,5 @@
+from model import *
+
 current_question = 0
 
 questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
@@ -25,8 +27,11 @@ def display_result():
 
 
 def select_answer(answer):
+    global buttons_list
+    selected_button = buttons_list[answer]
     if answer == correct_answers_index[current_question]:
-        print("correct")
+        # daca raspunsul e corect
+        selected_button.config(fg="green")
     else:
         print("wrong")
 
