@@ -1,26 +1,21 @@
-from model import *
+current_question = 0
 
-def start_quiz():
-    myLabel = Label(root, text="Cine e Michael Jackson?", font="Arial 20")
-    myLabel.pack()
-    myButton1 = Button(root, text="un om de stiinta", font="Arial 15")
-    myButton1.pack()
-    myButton2 = Button(root, text="un breakdancer", font="Arial 15")
-    myButton2.pack()
-    myButton3 = Button(root, text="un cantaret faimos", font="Arial 15")
-    myButton3.pack()
-    myButton4 = Button(root, text="un astronaut", font="Arial 15")
-    myButton4.pack()
-    interface.startButton.grid_forget()
+questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
+
+options = ["Cairo, Paris, Berlin, Roma", "1954, 1345, 1939, 1945","Un navigator, Un extremist, Un lider comunist, Un lider fascist", "88, 1979, 2000, '89"]
+
+correct_answers = ["Cairo", "1939", "Un navigator", "89"]
+
+correct_answers_index = [1, 3, 1, 4]
 
 
 def disable_buttons():
-    # TODO
+
     pass
 
 
 def display_question():
-    # TODO
+
     pass
 
 
@@ -29,21 +24,28 @@ def display_result():
     pass
 
 
-def select_answer():
-    # TODO
-    pass
-
+def select_answer(answer):
+    if answer == correct_answers_index[current_question]:
+        print("correct")
+    else:
+        print("wrong")
 
 def next_question():
-    # TODO
+    global current_question
+    current_question += 1
     pass
 
 
 def restart_quiz():
-    # TODO
+
     pass
 
 
-def exit_quiz():
-    # TODO
+def start_timer():
+
+    pass
+
+
+def stop_timer():
+
     pass
