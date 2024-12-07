@@ -40,10 +40,12 @@ def display_question():
 
     # schimb numele intrebarii
     global quiz_model
-    quiz_model.get_questions_label().config(text = questions[current_question])
+    question_label = quiz_model.get_questions_label()
+    question_label.config(text = questions[current_question])
 
 def display_result():
-
+    global quiz_model
+    print(quiz_model.score)
     pass
 
 
@@ -53,15 +55,21 @@ def select_answer(answer):
     if answer == correct_answers_index[current_question]:
         # daca raspunsul e corect
         selected_button.config(disabledforeground="green")
+        global quiz_model
+        quiz_model.increase_score()
     else:
         selected_button.config(disabledforeground="red")
+
     disable_buttons()
     selected_button.after(2000, display_question)
 
 def next_question():
     global current_question
-    current_question += 1
-
+    global questions
+    if current_question < len(questions)-1:
+        current_question += 1
+    else:
+        display_result()
 
 def restart_quiz():
 
