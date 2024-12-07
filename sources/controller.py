@@ -1,4 +1,4 @@
-from tkinter.constants import DISABLED
+from tkinter.constants import DISABLED, NORMAL
 
 from model import *
 
@@ -16,7 +16,7 @@ correct_answers_index = [1, 3, 1, 4]
 def disable_buttons():
    global buttons_list
    for button in buttons_list:
-        button.config(state=DISABLED)
+        button.config(state = DISABLED)
 
 
 def display_question():
@@ -33,7 +33,7 @@ def display_question():
     for i in range(4):
         current_button = buttons_list[i]
         current_button.config(text = current_question_options[i])
-
+        current_button.config(state = NORMAL)
     # schimb numele intrebarii
     # reactivez butoanele
     # decolorez toate butoanele
