@@ -46,7 +46,10 @@ def display_question():
 def display_result():
     global quiz_model
     print(quiz_model.score)
-    pass
+    global buttons_list
+    for i in range(4):
+        current_button = buttons_list[i]
+        current_button.pack_forget()
 
 
 def select_answer(answer):
