@@ -2,9 +2,13 @@ from controller import *
 
 from model import *
 
+# am folosit lambda pentru a transmite parametru functiei select_answer care, la randul ei, are transmisa ca parametru command
 def start_quiz():
     myLabel2 = Label(root, text="Care este capitala Egiptului?", font="Arial 20")
     myLabel2.pack()
+    global quiz_model
+    quiz_model.store_questions_label(myLabel2)
+
     myButton1 = Button(root, text="Cairo", font="Arial 15", command=lambda: select_answer(1))
     buttons_list.append(myButton1)
     myButton1.pack()
@@ -20,7 +24,6 @@ def start_quiz():
     startButton.pack_forget()
     startLabel.pack_forget()
 
-# am folosit lambda pentru a transmite parametru functiei select_answer care, la randul ei, are transmisa ca parametru command
 
 from tkinter import *
 root = Tk()

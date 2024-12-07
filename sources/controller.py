@@ -39,7 +39,8 @@ def display_question():
         current_button.config(disabledforeground = "gray")
 
     # schimb numele intrebarii
-
+    global quiz_model
+    quiz_model.get_questions_label().config(text = questions[current_question])
 
 def display_result():
 
