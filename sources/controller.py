@@ -44,12 +44,15 @@ def display_question():
     question_label.config(text = questions[current_question])
 
 def display_result():
-    global quiz_model
-    print(quiz_model.score)
     global buttons_list
     for i in range(4):
         current_button = buttons_list[i]
         current_button.pack_forget()
+    global quiz_model
+    score_label = quiz_model.get_questions_label()
+    score = quiz_model.score
+    label_text = "Your score is "
+    score_label.config(text = label_text+ str(score))
 
 
 def select_answer(answer):
