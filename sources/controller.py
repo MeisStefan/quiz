@@ -27,17 +27,18 @@ def display_question():
     start = 4 * current_question
     end = start + 4
     current_question_options = options[start:end:]
-    print(current_question_options)
 
+    # reactivez butoanele
     global buttons_list
     for i in range(4):
         current_button = buttons_list[i]
         current_button.config(text = current_question_options[i])
         current_button.config(state = NORMAL)
-    # schimb numele intrebarii
-    # reactivez butoanele
-    # decolorez toate butoanele
 
+        # decolorez toate butoanele
+        current_button.config(disabledforeground = "gray")
+
+    # schimb numele intrebarii
 
 
 def display_result():
