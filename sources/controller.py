@@ -1,3 +1,4 @@
+from tkinter import Label
 from tkinter.constants import DISABLED, NORMAL
 
 from model import *
@@ -43,6 +44,8 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
 
+
+
 def display_result():
     global buttons_list
     for i in range(4):
@@ -52,8 +55,9 @@ def display_result():
     score_label = quiz_model.get_questions_label()
     score = quiz_model.score
     label_text = "Your score is "
-    score_label.config(text = label_text+ str(score))
-
+    score_label.pack_forget()
+    myLabel3 = Label(text= label_text + str(score))
+    myLabel3.pack()
 
 def select_answer(answer):
     global buttons_list
