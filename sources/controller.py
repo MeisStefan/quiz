@@ -40,6 +40,14 @@ correct_answers = ["3",
 
 correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
 
+def create_start_screen(root, quiz_model):
+    startLabel = Label(root, text="Christmas Quiz", font="Arial 25")
+    quiz_model.store_start_label(startLabel)
+    startLabel.pack()
+    startButton = Button(root, text="Start", font="Arial 25", command=lambda: start_quiz(quiz_model, root))
+    quiz_model.store_start_button(startButton)
+    startButton.pack()
+
 # am folosit lambda pentru a transmite parametru functiei select_answer care, la randul ei, are transmisa ca parametru command
 def start_quiz(quiz_model, root):
     myLabel2 = Label(root, text="In cate zile se sarbatoreste Craciunul?", font="Arial 20")
@@ -133,7 +141,9 @@ def restart_quiz(root, quiz_model):
         current_button.pack_forget()
     current_label = quiz_model.get_questions_label()
     current_label.pack_forget()
-    start_quiz(quiz_model, root)
+    quiz_model.buttons_list.clear()
+    create_start_screen(root, quiz_model)
+
 
 def start_timer():
 
