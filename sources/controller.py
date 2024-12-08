@@ -25,7 +25,7 @@ options = ["3", "1", "4", "2",
            "Mints", "Ouă de ciocolată", "Turta-dulce", "Bastoane de zahar",
            "Frosty the Snowman", "Twelve Days of Christmas", "Five Little Turkeys", "Jingle Bells",
            "Iisus", "Sfantul Nicolae", "Sfântul Francisc", "Dumnezeu",
-           "Sangele lui Iisus", "Dragoste", "Pofta", "Pericol"]
+           "Sangele lui Iisus", "Dragoste", "Coca-Cola", "Pericol"]
 
 correct_answers = ["3",
                    "rosu, verde",
@@ -38,7 +38,7 @@ correct_answers = ["3",
                    "Sfantul Nicolae",
                    "Sangele lui Iisus"]
 
-correct_answers_index = [1, 3, 1, 4, 2, 3, 4, 3, 2, 1]
+correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
 
 
 def disable_buttons():

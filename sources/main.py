@@ -28,7 +28,7 @@ def start_quiz():
 from tkinter import *
 root = Tk()
 root.title("Christmas Quiz")
-root.geometry("600x300")
+root.geometry("900x300")
 startLabel = Label(root, text="Christmas Quiz", font="Arial 25")
 startLabel.pack()
 startButton = Button(root, text="Start", font="Arial 25", command=start_quiz)
