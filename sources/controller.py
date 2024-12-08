@@ -25,13 +25,14 @@ def display_question():
     # shimb numele butoanelor cu noile optiuni
     global current_question
     global options
-    start = 4 * current_question
-    end = start + 4
+    number_of_questions =len(questions)
+    start = number_of_questions * current_question
+    end = start + number_of_questions
     current_question_options = options[start:end:]
 
     # reactivez butoanele
     global quiz_model
-    for i in range(4):
+    for i in range(number_of_questions):
         current_button = quiz_model.buttons_list[i]
         current_button.config(text = current_question_options[i])
         current_button.config(state = NORMAL)
@@ -46,15 +47,16 @@ def display_question():
 
 
 def display_result():
+    number_of_questions = len(questions)
     global quiz_model
-    for i in range(4):
+    for i in range(number_of_questions):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
     score_label = quiz_model.get_questions_label()
     score = quiz_model.score
     label_text = "Your score is "
     score_label.pack_forget()
-    myLabel3 = Label(text= label_text + str(score))
+    myLabel3 = Label(text= label_text + str(score), font="Arial 30")
     myLabel3.pack()
 
 def select_answer(answer):
