@@ -41,7 +41,7 @@ correct_answers = ["3",
 correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
 
 # am folosit lambda pentru a transmite parametru functiei select_answer care, la randul ei, are transmisa ca parametru command
-def start_quiz(quiz_model, root, startLabel, startButton):
+def start_quiz(quiz_model, root):
     myLabel2 = Label(root, text="In cate zile se sarbatoreste Craciunul?", font="Arial 20")
     myLabel2.pack()
     quiz_model.store_questions_label(myLabel2)
@@ -58,8 +58,8 @@ def start_quiz(quiz_model, root, startLabel, startButton):
     myButton4 = Button(root, text="2", font="Arial 15", command=lambda: select_answer(4))
     quiz_model.store_answer_button(myButton4)
     myButton4.pack()
-    startButton.pack_forget()
-    startLabel.pack_forget()
+    quiz_model.get_start_label().pack_forget()
+    quiz_model.get_start_button().pack_forget()
 
 def disable_buttons():
    global quiz_model
@@ -127,14 +127,13 @@ def next_question():
     else:
         display_result()
 
-def restart_quiz(root, startLabel, startButton):
-    global quiz_model
+def restart_quiz(root, quiz_model):
     for i in range(4):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
     current_label = quiz_model.get_questions_label()
     current_label.pack_forget()
-    start_quiz(quiz_model, root, startLabel, startButton)
+    start_quiz(quiz_model, root)
 
 def start_timer():
 
