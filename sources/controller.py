@@ -83,7 +83,7 @@ def display_result():
     score = quiz_model.score
     label_text = "Your score is "
     score_label.pack_forget()
-    myLabel3 = Label(text= label_text + str(score), font="Arial 30")
+    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(questions)), font="Arial 30")
     myLabel3.pack()
 
 def select_answer(answer):
