@@ -5,13 +5,40 @@ from model import *
 
 current_question = 0
 
-questions = ["Care este capitala Egiptului?", "Cand a inceput al doilea Razboi Mondial?", "Cine este Fernando Magellan?", "Cand a avut loc revolutia din '89?"]
+questions = ["In cate zile se sarbatoreste Craciunul?",
+             "Care sunt culorile Craciunului?",
+             "Ce culori aveau hainele lui Mos Craciun initial?",
+             "Unde locuieste Mos Craciun?",
+             "Ce se sarbatoreste in a 3-a zi de Craciun?",
+             "In ce tara/tari se sarbatoreste Craciunul?",
+             "Care este cea mai faimoasă bomboană în perioada Crăciunului?",
+             "Care dintre următoarele NU este un cântec de Crăciun?",
+             "Moș Crăciun a fost inspirat de care persoană reală?",
+             "Ce simbolizează culoarea roșie în Crăciun?"]
 
-options = ["Cairo", "Paris", "Berlin", "Roma", "1954", "1345", "1939", "1945","Un navigator", "Un extremist", "Un lider comunist", "Un lider fascist", "88", "1979", "2000", "89"]
+options = ["3", "1", "4", "2",
+           "rosu, verde, alb", "rosu, galben, albastru", "rosu, verde", "rosu, argintiu",
+           "Albastre", "Portocalii", "Rosii", "Verzi",
+           "Peste tot", "La Polul Nord", "In New York", "In Laponia, Finlanda",
+           "Ajunul Craciunului", "Sfantul Stefan", "Craciunul", "Mos Nicolae",
+           "Romania", "In tarile musulmane", "China", "In tarile crestine",
+           "Mints", "Ouă de ciocolată", "Turta-dulce", "Bastoane de zahar",
+           "Frosty the Snowman", "Twelve Days of Christmas", "Five Little Turkeys", "Jingle Bells",
+           "Iisus", "Sfantul Nicolae", "Sfântul Francisc", "Dumnezeu",
+           "Sangele lui Iisus", "Dragoste", "Pofta", "Pericol"]
 
-correct_answers = ["Cairo", "1939", "Un navigator", "89"]
+correct_answers = ["3",
+                   "rosu, verde",
+                   "Albastre",
+                   "In Laponia, Finlanda",
+                   "Sfantul Stefan",
+                   "In tarile crestine",
+                   "Bastoane de zahar",
+                   "Five Little Turkeys",
+                   "Sfantul Nicolae",
+                   "Sangele lui Iisus"]
 
-correct_answers_index = [1, 3, 1, 4]
+correct_answers_index = [1, 3, 1, 4, 2, 3, 4, 3, 2, 1]
 
 
 def disable_buttons():
@@ -25,14 +52,14 @@ def display_question():
     # shimb numele butoanelor cu noile optiuni
     global current_question
     global options
-    number_of_questions =len(questions)
-    start = number_of_questions * current_question
-    end = start + number_of_questions
+    number_of_options =4
+    start = number_of_options * current_question
+    end = start + number_of_options
     current_question_options = options[start:end:]
 
     # reactivez butoanele
     global quiz_model
-    for i in range(number_of_questions):
+    for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
         current_button.config(text = current_question_options[i])
         current_button.config(state = NORMAL)
@@ -47,9 +74,9 @@ def display_question():
 
 
 def display_result():
-    number_of_questions = len(questions)
+    number_of_options = 4
     global quiz_model
-    for i in range(number_of_questions):
+    for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
     score_label = quiz_model.get_questions_label()
