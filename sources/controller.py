@@ -69,6 +69,7 @@ def start_quiz(quiz_model, root):
     myButton4.pack()
     quiz_model.get_start_label().pack_forget()
     quiz_model.get_start_button().pack_forget()
+    start_timer()
 
 def disable_buttons():
    global quiz_model
@@ -99,7 +100,7 @@ def display_question():
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
-    start_timer()
+
 
 
 def display_result():
