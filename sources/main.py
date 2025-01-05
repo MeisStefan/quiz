@@ -16,5 +16,6 @@ file_menu = Menu(menubar, tearoff=False)
 file_menu.add_command(label='Exit', command=mainWindow.destroy)
 file_menu.add_command(label='Restart', command=lambda: restart_quiz(mainWindow, quiz_model))
 menubar.add_cascade(label="Menu", menu=file_menu)
-
+timer = Label(text="30")
+timer.place(relx = 0.5, rely= 1.0, anchor = "s")
 mainWindow.mainloop()
