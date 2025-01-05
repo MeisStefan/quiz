@@ -77,6 +77,8 @@ def disable_buttons():
         button.config(state = DISABLED)
 
 
+
+
 def display_question():
     next_question()
     # shimb numele butoanelor cu noile optiuni
@@ -101,7 +103,7 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
 
-
+    reset_timer()
 
 def display_result():
     number_of_options = 4
@@ -157,3 +159,9 @@ def start_timer():
 def stop_timer():
 
     pass
+
+def reset_timer():
+    global quiz_model
+    global current_timer_seconds
+    current_timer_seconds = 30
+    quiz_model.get_timer().config(text=current_timer_seconds)
