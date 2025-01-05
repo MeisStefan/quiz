@@ -98,7 +98,7 @@ def display_question():
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
-
+    start_timer()
 
 
 def display_result():
@@ -146,7 +146,8 @@ def restart_quiz(root, quiz_model):
 
 
 def start_timer():
-
+    global quiz_model
+    quiz_model.get_timer().after(1000, print("jumpscare"))
     pass
 
 

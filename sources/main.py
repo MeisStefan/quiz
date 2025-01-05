@@ -18,4 +18,5 @@ file_menu.add_command(label='Restart', command=lambda: restart_quiz(mainWindow, 
 menubar.add_cascade(label="Menu", menu=file_menu)
 timer = Label(text="30")
 timer.place(relx = 0.5, rely= 1.0, anchor = "s")
+quiz_model.store_timer(timer)
 mainWindow.mainloop()
