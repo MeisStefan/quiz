@@ -129,6 +129,7 @@ def select_answer(answer):
         selected_button.config(disabledforeground="red")
 
     disable_buttons()
+    stop_timer()
     selected_button.after(2000, display_question)
 
 def next_question():
@@ -162,8 +163,8 @@ def start_timer():
 
 
 def stop_timer():
-
-    pass
+    global quiz_model
+    quiz_model.get_timer().after_cancel()
 
 def reset_timer():
     global quiz_model
