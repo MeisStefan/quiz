@@ -102,8 +102,8 @@ def display_question():
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
-
     reset_timer()
+    start_timer()
 
 def display_result():
     number_of_options = 4
@@ -156,6 +156,7 @@ def start_timer():
     current_timer_seconds = current_timer_seconds - 1
     if current_timer_seconds==0:
         timer.config(text="Time's up!")
+        timer.after(1000, display_question)
     else:
         timer.after(1000, start_timer)
 
