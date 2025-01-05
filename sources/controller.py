@@ -4,6 +4,7 @@ from tkinter.constants import DISABLED, NORMAL
 from model import *
 
 current_question = 0
+current_timer_seconds = 30
 
 questions = ["In cate zile se sarbatoreste Craciunul?",
              "Care sunt culorile Craciunului?",
@@ -144,12 +145,13 @@ def restart_quiz(root, quiz_model):
     quiz_model.buttons_list.clear()
     create_start_screen(root, quiz_model)
 
-
 def start_timer():
     global quiz_model
-    quiz_model.get_timer().after(1000, print("jumpscare"))
-    pass
-
+    global current_timer_seconds
+    timer = quiz_model.get_timer()
+    timer.config(text=current_timer_seconds)
+    current_timer_seconds = current_timer_seconds - 1
+    timer.after(1000, start_timer)
 
 def stop_timer():
 
