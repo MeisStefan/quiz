@@ -27,4 +27,10 @@ class QuizModel:
     def get_start_button(self):
         return self.start_button
 
+    def store_timer(self, timer):
+        self.timer = timer
+
+    def get_timer(self):
+        return self.timer
+
 quiz_model = QuizModel()

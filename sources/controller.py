@@ -4,6 +4,7 @@ from tkinter.constants import DISABLED, NORMAL
 from model import *
 
 current_question = 0
+current_timer_seconds = 15
 
 questions = ["In cate zile se sarbatoreste Craciunul?",
              "Care sunt culorile Craciunului?",
@@ -68,11 +69,14 @@ def start_quiz(quiz_model, root):
     myButton4.pack()
     quiz_model.get_start_label().pack_forget()
     quiz_model.get_start_button().pack_forget()
+    start_timer()
 
 def disable_buttons():
    global quiz_model
    for button in quiz_model.buttons_list:
         button.config(state = DISABLED)
+
+
 
 
 def display_question():
@@ -98,8 +102,8 @@ def display_question():
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
     question_label.config(text = questions[current_question])
-
-
+    reset_timer()
+    start_timer()
 
 def display_result():
     number_of_options = 4
@@ -125,6 +129,7 @@ def select_answer(answer):
         selected_button.config(disabledforeground="red")
 
     disable_buttons()
+    stop_timer()
     selected_button.after(2000, display_question)
 
 def next_question():
@@ -144,12 +149,26 @@ def restart_quiz(root, quiz_model):
     quiz_model.buttons_list.clear()
     create_start_screen(root, quiz_model)
 
-
 def start_timer():
-
-    pass
+    global quiz_model
+    global current_timer_seconds
+    timer = quiz_model.get_timer()
+    timer.config(text=current_timer_seconds)
+    current_timer_seconds = current_timer_seconds - 1
+    if current_timer_seconds==0:
+        timer.config(text="Time's up!")
+        timer.after(1000, display_question)
+    else:
+        timer.after(1000, start_timer)
 
 
 def stop_timer():
-
+    # global quiz_model
+    # quiz_model.get_timer().after_cancel()
     pass
+
+def reset_timer():
+    global quiz_model
+    global current_timer_seconds
+    current_timer_seconds = 15
+    quiz_model.get_timer().config(text=current_timer_seconds)
