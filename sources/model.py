@@ -3,6 +3,7 @@ class QuizModel:
         self.score = 0
         self.buttons_list = []
         self.current_question = 0
+        self.current_timer_seconds = 15
 
     def store_questions_label(self, label):
         self.questions_label = label
@@ -33,6 +34,22 @@ class QuizModel:
 
     def get_timer(self):
         return self.timer
+
+    def get_current_question(self):
+        return self.current_question
+
+    def get_current_timer_seconds(self):
+        return self.current_timer_seconds
+
+    def increment_current_question(self):
+        self.current_question +=1
+
+    def decrement_current_timer_seconds(self):
+        self.current_timer_seconds -=1
+
+    def reset_timer(self):
+        self.current_timer_seconds = 15
+        self.timer.config(text=self.current_timer_seconds)
 
 quiz_model = QuizModel()
 
