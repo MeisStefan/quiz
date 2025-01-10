@@ -6,41 +6,6 @@ from model import *
 current_question = 0
 current_timer_seconds = 15
 
-questions = ["In cate zile se sarbatoreste Craciunul?",
-             "Care sunt culorile Craciunului?",
-             "Ce culori aveau hainele lui Mos Craciun initial?",
-             "Unde locuieste Mos Craciun?",
-             "Ce se sarbatoreste in a 3-a zi de Craciun?",
-             "In ce tara/tari se sarbatoreste Craciunul?",
-             "Care este cea mai faimoasă bomboană în perioada Crăciunului?",
-             "Care dintre următoarele NU este un cântec de Crăciun?",
-             "Moș Crăciun a fost inspirat de care persoană reală?",
-             "Ce simbolizează culoarea roșie în Crăciun?"]
-
-options = ["3", "1", "4", "2",
-           "rosu, verde, alb", "rosu, galben, albastru", "rosu, verde", "rosu, argintiu",
-           "Albastre", "Portocalii", "Rosii", "Verzi",
-           "Peste tot", "La Polul Nord", "In New York", "In Laponia, Finlanda",
-           "Ajunul Craciunului", "Sfantul Stefan", "Craciunul", "Mos Nicolae",
-           "Romania", "In tarile musulmane", "China", "In tarile crestine",
-           "Mints", "Ouă de ciocolată", "Turta-dulce", "Bastoane de zahar",
-           "Frosty the Snowman", "Twelve Days of Christmas", "Five Little Turkeys", "Jingle Bells",
-           "Iisus", "Sfantul Nicolae", "Sfântul Francisc", "Dumnezeu",
-           "Sangele lui Iisus", "Dragoste", "Coca-Cola", "Pericol"]
-
-correct_answers = ["3",
-                   "rosu, verde",
-                   "Albastre",
-                   "In Laponia, Finlanda",
-                   "Sfantul Stefan",
-                   "In tarile crestine",
-                   "Bastoane de zahar",
-                   "Five Little Turkeys",
-                   "Sfantul Nicolae",
-                   "Sangele lui Iisus"]
-
-correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
-
 def create_start_screen(root, quiz_model):
     startLabel = Label(root, text="Christmas Quiz", font="Arial 25")
     quiz_model.store_start_label(startLabel)
@@ -75,9 +40,6 @@ def disable_buttons():
    global quiz_model
    for button in quiz_model.buttons_list:
         button.config(state = DISABLED)
-
-
-
 
 def display_question():
     next_question()
