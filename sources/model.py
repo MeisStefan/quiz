@@ -35,6 +35,7 @@ class QuizModel:
                            "Sfantul Nicolae",
                            "Sangele lui Iisus"]
         self.correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
+        self.timer_ID = None
 
     def store_questions_label(self, label):
         self.questions_label = label
@@ -87,5 +88,11 @@ class QuizModel:
 
     def get_current_question_text(self):
         return self.questions[self.current_question]
+
+    def get_timer_ID(self):
+        return self.timer_ID
+
+    def store_timer_ID(self, ID):
+        self.timer_ID = ID
 
 quiz_model = QuizModel()

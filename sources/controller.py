@@ -111,12 +111,14 @@ def start_timer():
     quiz_model.decrement_current_timer_seconds()
     if quiz_model.get_current_timer_seconds()==0:
         timer.config(text="Time's up!")
-        timer.after(1000, display_question)
+        timer_id = timer.after(1000, display_question)
     else:
-        timer.after(1000, start_timer)
+        timer_id = timer.after(1000, start_timer)
+    quiz_model.store_timer_ID(timer_id)
 
 def stop_timer():
-    pass
+    global quiz_model
+    quiz_model.get_timer().after_cancel(quiz_model.get_timer_ID())
 
 def reset_timer():
     global quiz_model
