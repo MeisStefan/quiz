@@ -85,4 +85,7 @@ class QuizModel:
     def is_correct_answer(self, answer):
         return answer == self.correct_answers_index[self.current_question]
 
+    def get_current_question_text(self):
+        return self.questions[self.current_question]
+
 quiz_model = QuizModel()

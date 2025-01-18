@@ -56,7 +56,7 @@ def display_question():
 
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
-    question_label.config(text = quiz_model.questions[quiz_model.get_current_question()])
+    question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
     start_timer()
 
