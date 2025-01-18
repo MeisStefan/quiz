@@ -95,4 +95,7 @@ class QuizModel:
     def store_timer_ID(self, ID):
         self.timer_ID = ID
 
+    def cancel_timer(self):
+        self.timer.after_cancel(self.timer_ID)
+
 quiz_model = QuizModel()
