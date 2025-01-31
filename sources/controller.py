@@ -40,11 +40,10 @@ def display_question():
     next_question()
     # shimb numele butoanelor cu noile optiuni
     global quiz_model
-    global options
     number_of_options =4
     start = number_of_options * quiz_model.get_current_question()
     end = start + number_of_options
-    current_question_options = options[start:end:]
+    current_question_options = quiz_model.options[start:end:]
 
     # reactivez butoanele
     for i in range(number_of_options):
@@ -57,7 +56,7 @@ def display_question():
 
     # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
-    question_label.config(text = questions[quiz_model.get_current_question()])
+    question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
     start_timer()
 
@@ -71,13 +70,13 @@ def display_result():
     score = quiz_model.score
     label_text = "Your score is "
     score_label.pack_forget()
-    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(questions)), font="Arial 30")
+    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions)), font="Arial 30")
     myLabel3.pack()
 
 def select_answer(answer):
     global quiz_model
     selected_button = quiz_model.buttons_list[answer - 1]
-    if answer == correct_answers_index[quiz_model.get_current_question()]:
+    if quiz_model.is_correct_answer(answer):
         # daca raspunsul e corect
         selected_button.config(disabledforeground="green")
         quiz_model.increase_score()
@@ -90,8 +89,7 @@ def select_answer(answer):
 
 def next_question():
     global quiz_model
-    global questions
-    if quiz_model.get_current_question() < len(questions)-1:
+    if quiz_model.get_current_question() < len(quiz_model.questions)-1:
         quiz_model.increment_current_question()
     else:
         display_result()
@@ -113,14 +111,14 @@ def start_timer():
     quiz_model.decrement_current_timer_seconds()
     if quiz_model.get_current_timer_seconds()==0:
         timer.config(text="Time's up!")
-        timer.after(1000, display_question)
+        timer_id = timer.after(1000, display_question)
     else:
-        timer.after(1000, start_timer)
+        timer_id = timer.after(1000, start_timer)
+    quiz_model.store_timer_ID(timer_id)
 
 def stop_timer():
     global quiz_model
-    quiz_model.get_timer().after_cancel()
-    pass
+    quiz_model.cancel_timer()
 
 def reset_timer():
     global quiz_model
