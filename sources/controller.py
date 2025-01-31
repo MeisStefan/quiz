@@ -118,6 +118,8 @@ def start_timer():
         timer.after(1000, start_timer)
 
 def stop_timer():
+    global quiz_model
+    quiz_model.get_timer().after_cancel()
     pass
 
 def reset_timer():
