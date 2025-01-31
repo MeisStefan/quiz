@@ -1,12 +1,8 @@
-from tkinter.constants import DISABLED
-
-
 class QuizModel:
     def __init__(self):
         self.score = 0
         self.buttons_list = []
         self.current_question = 0
-        self.current_timer_seconds = 15
         self.questions = ["In cate zile se sarbatoreste Craciunul?",
                      "Care sunt culorile Craciunului?",
                      "Ce culori aveau hainele lui Mos Craciun initial?",
@@ -38,7 +34,6 @@ class QuizModel:
                            "Sfantul Nicolae",
                            "Sangele lui Iisus"]
         self.correct_answers_index = [1, 3, 1, 4, 2, 4, 4, 3, 2, 1]
-        self.timer_ID = None
 
     def store_questions_label(self, label):
         self.questions_label = label
@@ -64,44 +59,16 @@ class QuizModel:
     def get_start_button(self):
         return self.start_button
 
-    def store_timer(self, timer):
-        self.timer = timer
-
-    def get_timer(self):
-        return self.timer
-
     def get_current_question(self):
         return self.current_question
 
-    def get_current_timer_seconds(self):
-        return self.current_timer_seconds
-
     def increment_current_question(self):
         self.current_question +=1
-
-    def decrement_current_timer_seconds(self):
-        self.current_timer_seconds -=1
-
-    def reset_timer(self):
-        self.current_timer_seconds = 15
-        self.timer.config(text=self.current_timer_seconds)
 
     def is_correct_answer(self, answer):
         return answer == self.correct_answers_index[self.current_question]
 
     def get_current_question_text(self):
         return self.questions[self.current_question]
-
-    def get_timer_ID(self):
-        return self.timer_ID
-
-    def store_timer_ID(self, ID):
-        self.timer_ID = ID
-
-    def cancel_timer(self):
-        self.timer.after_cancel(self.timer_ID)
-
-    def hide_timer(self):
-        self.timer.config(text = "")
 
 quiz_model = QuizModel()

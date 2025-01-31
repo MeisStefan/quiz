@@ -1,6 +1,7 @@
 from tkinter import Label, Button
 from tkinter.constants import DISABLED, NORMAL
 from model import *
+from timer import *
 
 def create_start_screen(root, quiz_model):
     startLabel = Label(root, text="Christmas Quiz", font="Arial 25")
@@ -104,24 +105,24 @@ def restart_quiz(root, quiz_model):
     create_start_screen(root, quiz_model)
     stop_timer()
     reset_timer()
-    quiz_model.hide_timer()
+    quiz_timer.hide_timer()
 
 def start_timer():
-    global quiz_model
-    timer = quiz_model.get_timer()
-    timer.config(text=quiz_model.get_current_timer_seconds())
-    quiz_model.decrement_current_timer_seconds()
-    if quiz_model.get_current_timer_seconds()==0:
+    global quiz_timer
+    timer = quiz_timer.get_timer()
+    timer.config(text=quiz_timer.get_current_timer_seconds())
+    quiz_timer.decrement_current_timer_seconds()
+    if quiz_timer.get_current_timer_seconds()==0:
         timer.config(text="Time's up!")
         timer_id = timer.after(1000, display_question)
     else:
         timer_id = timer.after(1000, start_timer)
-    quiz_model.store_timer_ID(timer_id)
+    quiz_timer.store_timer_ID(timer_id)
 
 def stop_timer():
-    global quiz_model
-    quiz_model.cancel_timer()
+    global quiz_timer
+    quiz_timer.cancel_timer()
 
 def reset_timer():
-    global quiz_model
-    quiz_model.reset_timer()
+    global quiz_timer
+    quiz_timer.reset_timer()
