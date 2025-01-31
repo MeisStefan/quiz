@@ -102,7 +102,9 @@ def restart_quiz(root, quiz_model):
     current_label.pack_forget()
     quiz_model.buttons_list.clear()
     create_start_screen(root, quiz_model)
+    stop_timer()
     reset_timer()
+    quiz_model.hide_timer()
 
 def start_timer():
     global quiz_model

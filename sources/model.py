@@ -1,3 +1,6 @@
+from tkinter.constants import DISABLED
+
+
 class QuizModel:
     def __init__(self):
         self.score = 0
@@ -97,5 +100,8 @@ class QuizModel:
 
     def cancel_timer(self):
         self.timer.after_cancel(self.timer_ID)
+
+    def hide_timer(self):
+        self.timer.config(text = "")
 
 quiz_model = QuizModel()
