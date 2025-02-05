@@ -2,6 +2,7 @@ class QuizTimer:
     def __init__(self):
         self.timer_ID = None
         self.current_timer_seconds = 15
+
     def store_timer(self, timer):
         self.timer = timer
 
@@ -29,4 +30,11 @@ class QuizTimer:
 
     def hide_timer(self):
         self.timer.config(text = "")
+
+    def store_next_question_timer_ID(self, ID):
+        self.next_question_timer_ID = ID
+
+    def stop_next_question_timer(self):
+        self.store_next_question_timer_ID.after_cancel(self.next_question_timer_ID)
+
 quiz_timer = QuizTimer()

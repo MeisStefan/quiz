@@ -59,8 +59,7 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
-    if quiz_model.get_current_question() < len(quiz_model.questions) - 1:
-        start_timer()
+    start_timer()
 
 def display_result():
     number_of_options = 4
@@ -68,13 +67,12 @@ def display_result():
     for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
-    question_label = quiz_model.get_questions_label()
-    question_label.pack_forget()
-
+    score_label = quiz_model.get_questions_label()
     score = quiz_model.score
     label_text = "Your score is "
-    score_label = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions)), font="Arial 30")
-    score_label.pack()
+    score_label.pack_forget()
+    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions)), font="Arial 30")
+    myLabel3.pack()
 
 def select_answer(answer):
     global quiz_model

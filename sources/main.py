@@ -1,11 +1,7 @@
 global quiz_model
-
 from timer import *
-
 from controller import *
-
 from model import *
-
 from tkinter import *
 
 mainWindow = Tk()
