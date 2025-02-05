@@ -59,7 +59,8 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
-    start_timer()
+    if quiz_model.get_current_question() < len(quiz_model.questions) - 1:
+        start_timer()
 
 def display_result():
     number_of_options = 4
