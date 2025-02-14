@@ -41,6 +41,7 @@ def display_question():
     next_question()
     # shimb numele butoanelor cu noile optiuni
     global quiz_model
+    global quiz_timer
     number_of_options =4
     start = number_of_options * quiz_model.get_current_question()
     end = start + number_of_options
@@ -59,8 +60,10 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
-    if quiz_model.get_current_question() < len(quiz_model.questions) - 1:
+    if quiz_model.get_current_question() <= len(quiz_model.questions) - 1:
         start_timer()
+    else:
+        quiz_timer.hide_timer()
 
 def display_result():
     number_of_options = 4
@@ -87,7 +90,10 @@ def select_answer(answer):
 
     disable_buttons()
     stop_timer()
-    selected_button.after(2000, display_question)
+    if quiz_model.get_current_question() < len(quiz_model.questions):
+        selected_button.after(2000, display_question)
+    else:
+        selected_button.after(2000, display_result)
 
 def next_question():
     global quiz_model
