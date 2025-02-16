@@ -35,6 +35,6 @@ class QuizTimer:
         self.next_question_timer_ID = ID
 
     def stop_next_question_timer(self):
-        self.store_next_question_timer_ID.after_cancel(self.next_question_timer_ID)
+        self.timer.after_cancel(self.next_question_timer_ID)
 
 quiz_timer = QuizTimer()
