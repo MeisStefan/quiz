@@ -25,8 +25,11 @@ def display_quiz_question(quiz_model, admin_window, original_question):
         answer_option_Entry.grid(row=i, column=2)
 
 def create_new_question(admin_window, new_question_button):
-    explicative_label_new_question = Label(admin_window, text="Insert new question below:", font="Arial 25")
-    explicative_label_new_question.grid(row=4, column=0, columnspan=3)
+    explicative_label_new_question = Label(admin_window, text="New question & answers:", font="Arial 25")
+    explicative_label_new_question.grid(row=4, column=0)
     new_question_Entry = Entry(admin_window, font="Arial 25", bd=5, fg="black", width=20)
-    new_question_Entry.grid(row=5, column=0, columnspan=3)
+    new_question_Entry.grid(row=4, column=1)
+    for i in range(4):
+        new_answer_Entry = Entry(admin_window, font="Arial 25", bd=5, fg="black", width=20)
+        new_answer_Entry.grid(row=i + 4, column=2)
     new_question_button.grid_forget()
