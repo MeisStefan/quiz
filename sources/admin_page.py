@@ -8,7 +8,7 @@ def create_admin_page(quiz_model):
     original_question = quiz_questions[0]
     display_quiz_question(quiz_model, admin_window, original_question)
 
-    new_question_Button = Button(admin_window, text="Press for new question", font="Bolt 25")
+    new_question_Button = Button(admin_window, text="Press for new question", font="Bolt 25", command=lambda:create_new_question(admin_window, new_question_Button))
     new_question_Button.grid(row=4, column=0, columnspan=3)
 
 def display_quiz_question(quiz_model, admin_window, original_question):
@@ -23,3 +23,10 @@ def display_quiz_question(quiz_model, admin_window, original_question):
         answer_option_Entry = Entry(admin_window, font="Arial 25", bd=5, fg="black", width=20)
         answer_option_Entry.insert(0, original_answers[i])
         answer_option_Entry.grid(row=i, column=2)
+
+def create_new_question(admin_window, new_question_button):
+    explicative_label_new_question = Label(admin_window, text="Insert new question below:", font="Arial 25")
+    explicative_label_new_question.grid(row=4, column=0, columnspan=3)
+    new_question_Entry = Entry(admin_window, font="Arial 25", bd=5, fg="black", width=20)
+    new_question_Entry.grid(row=5, column=0, columnspan=3)
+    new_question_button.grid_forget()
