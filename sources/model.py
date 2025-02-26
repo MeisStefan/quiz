@@ -71,4 +71,7 @@ class QuizModel:
     def get_current_question_text(self):
         return self.questions[self.current_question]
 
+    def update_question_text(self, new_question_name, new_question_index):
+        self.questions[new_question_index] = new_question_name
+
 quiz_model = QuizModel()

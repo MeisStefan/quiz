@@ -53,9 +53,12 @@ def create_admin_page(quiz_model):
             answer_entries.append(entry)
 
         def save_edit():
-            new_values = [question_entry.get()] + [entry.get() for entry in answer_entries]
+            new_question_name = question_entry.get()
+            new_question_index = tree.index(tree.selection())
+            new_values = [new_question_name] + [entry.get() for entry in answer_entries]
             tree.item(selected_item, values=new_values)
             edit_window.destroy()
+            quiz_model.update_question_text(new_question_name, new_question_index)
 
         Button(edit_window, text="Save", font="Arial 12", command=save_edit).pack(pady=10)
 
