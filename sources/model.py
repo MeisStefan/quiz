@@ -74,4 +74,9 @@ class QuizModel:
     def update_question_text(self, new_question_name, new_question_index):
         self.questions[new_question_index] = new_question_name
 
+    def update_answers_text(self, new_answers_name, new_question_index):
+        for i in range(4):
+            each_answer = new_answers_name[i]
+            self.options[new_question_index * 4 + i] = each_answer
+
 quiz_model = QuizModel()

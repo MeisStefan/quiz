@@ -16,12 +16,12 @@ def display_question():
     number_of_options =4
     start = number_of_options * quiz_model.get_current_question()
     end = start + number_of_options
-    current_question_options = quiz_model.options[start:end:]
+    current_question_answers = quiz_model.options[start:end:]
 
     # reactivez butoanele
     for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
-        current_button.config(text = current_question_options[i])
+        current_button.config(text = current_question_answers[i])
         current_button.config(state = NORMAL)
 
         # decolorez toate butoanele
