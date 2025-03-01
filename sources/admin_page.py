@@ -45,10 +45,14 @@ def create_admin_page(quiz_model):
         question_entry.pack()
 
         answer_entries = []
-        for i in range(4):
-            Label(edit_window, text=f"Option {i + 1}:", font="Arial 12").pack()
-            entry = Entry(edit_window, font="Arial 12", width=50)
-            entry.insert(0, values[i + 1])
+        for current_answer_index in range(4):
+            correct_answer_index = quiz_model.get_correct_answer_index(question_index=tree.index(tree.selection()))
+            Label(edit_window, text=f"Option {current_answer_index + 1}:", font="Arial 12").pack()
+            text_color = "black"
+            if correct_answer_index == current_answer_index:
+                text_color = "green"
+            entry = Entry(edit_window, font="Arial 12",fg=text_color, width=50)
+            entry.insert(0, values[current_answer_index + 1])
             entry.pack()
             answer_entries.append(entry)
 

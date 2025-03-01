@@ -79,4 +79,7 @@ class QuizModel:
             each_answer = new_answers_name[i]
             self.options[new_question_index * 4 + i] = each_answer
 
+    def get_correct_answer_index(self, question_index):
+        return self.correct_answers_index[question_index]-1
+
 quiz_model = QuizModel()
