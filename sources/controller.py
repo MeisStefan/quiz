@@ -3,8 +3,6 @@ from tkinter.constants import DISABLED, NORMAL
 from model import *
 from timer import *
 
-
-
 def disable_buttons():
    global quiz_model
    for button in quiz_model.buttons_list:
@@ -75,7 +73,7 @@ def next_question():
     else:
         display_result()
 
-def restart_quiz(root, quiz_model):
+def restart_quiz(root, quiz_model, create_start_screen):
     for i in range(4):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
