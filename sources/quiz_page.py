@@ -3,10 +3,10 @@ from constants import *
 from tkinter import *
 
 def create_start_screen(root, quiz_model):
-    startLabel = Label(root, text="Christmas Quiz", font=QUIZ_PAGE_START_FONT)
+    startLabel = Label(root, text= QUIZ_PAGE_START_TEXT, font=QUIZ_PAGE_START_FONT)
     quiz_model.store_start_label(startLabel)
     startLabel.pack()
-    startButton = Button(root, text="Start", font=QUIZ_PAGE_START_FONT, command=lambda: start_quiz(quiz_model, root))
+    startButton = Button(root, text= QUIZ_PAGE_START_BUTTON, font=QUIZ_PAGE_START_FONT, command=lambda: start_quiz(quiz_model, root))
     quiz_model.store_start_button(startButton)
     startButton.pack()
 

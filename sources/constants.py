@@ -3,3 +3,5 @@ QUIZ_PAGE_TITLE_FONT = "Arial 20"
 QUIZ_PAGE_TITLE = "In cate zile se sarbatoreste Craciunul?"
 QUIZ_PAGE_ANSWERS_FONT = "Arial 15"
 QUIZ_PAGE_ANSWERS_TITLES = ["3", "1", "4", "2"]
+QUIZ_PAGE_START_TEXT = "Christmas Quiz"
+QUIZ_PAGE_START_BUTTON = "Start"
