@@ -4,6 +4,7 @@ from controller import *
 from model import *
 from tkinter import *
 from admin_page import *
+from quiz_page import *
 
 mainWindow = Tk()
 mainWindow.title("Christmas Quiz")
