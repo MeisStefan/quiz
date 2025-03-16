@@ -1,8 +1,12 @@
+from constants import QUIZ_QUESTIONS
+
+
 class QuizModel:
     def __init__(self):
         self.score = 0
         self.buttons_list = []
         self.current_question = 0
+        self.questions_list = QUIZ_QUESTIONS
         self.questions = ["In cate zile se sarbatoreste Craciunul?",
                           "Care sunt culorile Craciunului?",
                           "Ce culori aveau hainele lui Mos Craciun initial?",

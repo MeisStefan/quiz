@@ -11,19 +11,21 @@ def create_start_screen(root, quiz_model):
     startButton.pack()
 
 def start_quiz(quiz_model, root):
-    myLabel2 = Label(root, text= quiz_model.questions[0], font= QUIZ_PAGE_TITLE_FONT)
+    first_question = quiz_model.questions_list[0]
+    myLabel2 = Label(root, text=first_question.question, font= QUIZ_PAGE_TITLE_FONT)
     myLabel2.pack()
     quiz_model.store_questions_label(myLabel2)
-    myButton1 = Button(root, text= quiz_model.options[0], font= QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(1))
+    answer_list = first_question.answers
+    myButton1 = Button(root, text= answer_list[0], font= QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(1))
     quiz_model.store_answer_button(myButton1)
     myButton1.pack()
-    myButton2 = Button(root, text =quiz_model.options[1], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(2))
+    myButton2 = Button(root, text =answer_list[1], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(2))
     quiz_model.store_answer_button(myButton2)
     myButton2.pack()
-    myButton3 = Button(root, text =quiz_model.options[2], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(3))
+    myButton3 = Button(root, text =answer_list[2], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(3))
     quiz_model.store_answer_button(myButton3)
     myButton3.pack()
-    myButton4 = Button(root, text =quiz_model.options[3], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(4))
+    myButton4 = Button(root, text =answer_list[3], font=QUIZ_PAGE_ANSWERS_FONT, command=lambda: select_answer(4))
     quiz_model.store_answer_button(myButton4)
     myButton4.pack()
     quiz_model.get_start_label().pack_forget()
