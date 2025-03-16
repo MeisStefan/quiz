@@ -73,15 +73,15 @@ class QuizModel:
         return answer == self.correct_answers_index[self.current_question]
 
     def get_current_question_text(self):
-        return self.questions[self.current_question]
+        return self.questions_list[self.current_question].question
 
     def update_question_text(self, new_question_name, new_question_index):
-        self.questions[new_question_index] = new_question_name
+        self.questions_list[new_question_index].question = new_question_name
 
     def update_answers_text(self, new_answers_name, new_question_index):
         for i in range(4):
             each_answer = new_answers_name[i]
-            self.options[new_question_index * 4 + i] = each_answer
+            self.questions_list[new_question_index].answers[i] = each_answer
 
     def get_correct_answer_index(self, question_index):
         return self.correct_answers_index[question_index]-1

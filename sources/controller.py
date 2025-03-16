@@ -13,13 +13,12 @@ def display_question():
     # shimb numele butoanelor cu noile optiuni
     global quiz_model
     global quiz_timer
-    number_of_options =4
-    start = number_of_options * quiz_model.get_current_question()
-    end = start + number_of_options
-    current_question_answers = quiz_model.options[start:end:]
 
+    current_question_index = quiz_model.get_current_question()
+    current_question = quiz_model.questions_list[current_question_index]
+    current_question_answers = current_question.answers
     # reactivez butoanele
-    for i in range(number_of_options):
+    for i in range(len(current_question_answers)):
         current_button = quiz_model.buttons_list[i]
         current_button.config(text = current_question_answers[i])
         current_button.config(state = NORMAL)
@@ -31,7 +30,7 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
-    if quiz_model.get_current_question() <= len(quiz_model.questions) - 1:
+    if current_question_index <= len(quiz_model.questions) - 1:
         start_timer()
     else:
         quiz_timer.hide_timer()
