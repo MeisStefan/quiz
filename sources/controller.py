@@ -30,7 +30,7 @@ def display_question():
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
     reset_timer()
-    if current_question_index <= len(quiz_model.questions) - 1:
+    if current_question_index <= len(quiz_model.questions_list) - 1:
         start_timer()
     else:
         quiz_timer.hide_timer()
@@ -45,7 +45,7 @@ def display_result():
     score = quiz_model.score
     label_text = "Your score is "
     score_label.pack_forget()
-    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions)), font="Arial 30")
+    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions_list)), font="Arial 30")
     myLabel3.pack()
 
 def select_answer(answer):
@@ -60,14 +60,14 @@ def select_answer(answer):
 
     disable_buttons()
     stop_timer()
-    if quiz_model.get_current_question() < len(quiz_model.questions):
+    if quiz_model.get_current_question() < len(quiz_model.questions_list):
         selected_button.after(2000, display_question)
     else:
         selected_button.after(2000, display_result)
 
 def next_question():
     global quiz_model
-    if quiz_model.get_current_question() < len(quiz_model.questions)-1:
+    if quiz_model.get_current_question() < len(quiz_model.questions_list)-1:
         quiz_model.increment_current_question()
     else:
         display_result()
