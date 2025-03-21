@@ -23,14 +23,8 @@ def create_admin_page(quiz_model):
     scrollbar.pack(side=RIGHT, fill=Y)
     tree.pack(fill=BOTH, expand=True)
 
-    quiz_questions = quiz_model.questions
-    quiz_options = quiz_model.options
-
-    for i, question in enumerate(quiz_questions):
-        start = i * 4
-        end = start + 4
-        options = quiz_options[start:end]
-        tree.insert("", "end", values=(question, *options))
+    for quiz_question in quiz_model.questions_list:
+        tree.insert("", "end", values=(quiz_question.question, *quiz_question.answers))
 
     def edit_item(event):
         selected_item = tree.selection()[0]
