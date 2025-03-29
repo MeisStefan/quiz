@@ -16,3 +16,4 @@ QUIZ_QUESTIONS =[QuizQuestion("In cate zile se sarbatoreste Craciunul?", ["3", "
                  QuizQuestion("Care dintre următoarele NU este un cântec de Crăciun?", ["Frosty the Snowman", "Twelve Days of Christmas", "Five Little Turkeys", "Jingle Bells"], "Five Little Turkeys", 3),
                  QuizQuestion("Moș Crăciun a fost inspirat de care persoană reală?", ["Iisus", "Sfantul Nicolae", "Sfântul Francisc", "Dumnezeu"], "Sfantul Nicolae", 2),
                  QuizQuestion("Ce simbolizează culoarea roșie în Crăciun?", ["Sangele lui Iisus", "Dragoste", "Coca-Cola", "Pericol"], "Sangele lui Iisus", 1)]
+QUESTIONS_FILE = "quiz_questions.json"

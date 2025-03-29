@@ -1,6 +1,10 @@
-from constants import QUIZ_QUESTIONS
+from constants import QUIZ_QUESTIONS, QUESTIONS_FILE
 import os
 import json
+
+from quiz_question import QuizQuestion
+
+
 class QuizModel:
     def __init__(self):
         self.score = 0
@@ -61,7 +65,7 @@ class QuizModel:
     def load_questions(self):
         # load questions from file
         home_dir = os.path.expanduser("~")
-        quiz_file_path = os.path.join(home_dir, "quiz_questions.json")
+        quiz_file_path = os.path.join(home_dir, QUESTIONS_FILE)
         # Verificăm dacă fișierul există
         if os.path.exists(quiz_file_path):
             with open(quiz_file_path, 'r', encoding='utf-8') as file:
@@ -70,10 +74,16 @@ class QuizModel:
             # Dacă fișierul nu există, folosim lista default
             quiz_questions = QUIZ_QUESTIONS
             # Salvăm lista default într-un fișier pentru viitor
-            # with open(quiz_file_path, 'w', encoding='utf-8') as file:
-                # json.dump(quiz_questions, file, ensure_ascii=False, indent=4)
+            with open(quiz_file_path, 'w', encoding='utf-8') as file:
+                json.dump(quiz_questions, file, ensure_ascii=False, indent=4)
 
-        self.questions_list = quiz_questions
+
+        self.questions_list = [QuizQuestion(
+            question=q["question"],
+            answers=q["answers"],
+            correct_answer=q["correct_answer"],
+            correct_answer_index=q["correct_answer_index"]
+        ) for q in quiz_questions]
 
 
 quiz_model = QuizModel()
