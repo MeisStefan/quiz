@@ -72,11 +72,10 @@ class QuizModel:
                 quiz_questions = json.load(file)
         else:
             # Dacă fișierul nu există, folosim lista default
-            quiz_questions = QUIZ_QUESTIONS
+            quiz_questions_dict = [q.to_dict() for q in QUIZ_QUESTIONS]
             # Salvăm lista default într-un fișier pentru viitor
             with open(quiz_file_path, 'w', encoding='utf-8') as file:
-                json.dump(quiz_questions, file, ensure_ascii=False, indent=4)
-
+                json.dump(quiz_questions_dict, file, ensure_ascii=False, indent=4)
 
         self.questions_list = [QuizQuestion(
             question=q["question"],
@@ -85,6 +84,15 @@ class QuizModel:
             correct_answer_index=q["correct_answer_index"]
         ) for q in quiz_questions]
 
+    def save_quiz_questions_to_file(self):
+        # Transformăm fiecare obiect QuizQuestion într-un dicționar
+        quiz_questions_dict = [q.to_dict() for q in self.questions_list]
+
+        # Salvăm lista de dicționare într-un fișier JSON
+        home_dir = os.path.expanduser("~")
+        quiz_file_path = os.path.join(home_dir, QUESTIONS_FILE)
+        with open(quiz_file_path, 'w', encoding='utf-8') as file:
+            json.dump(quiz_questions_dict, file, ensure_ascii=False, indent=4)
 
 quiz_model = QuizModel()
 quiz_model.load_questions()
