@@ -41,12 +41,12 @@ def display_result():
     for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
-    score_label = quiz_model.get_questions_label()
+    questions_label = quiz_model.get_questions_label()
     score = quiz_model.score
     label_text = "Your score is "
-    score_label.pack_forget()
-    myLabel3 = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions_list)), font="Arial 30")
-    myLabel3.pack()
+    questions_label.pack_forget()
+    score_label = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions_list)), font="Arial 30")
+    score_label.pack()
 
 def select_answer(answer):
     global quiz_model
