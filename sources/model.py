@@ -62,6 +62,11 @@ class QuizModel:
         question = self.questions_list[question_index]
         return question.correct_answer_index-1
 
+    def restart(self):
+        self.buttons_list.clear()
+        self.current_question = 0
+        self.score = 0
+
     def load_questions(self):
         # load questions from file
         home_dir = os.path.expanduser("~")

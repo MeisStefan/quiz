@@ -78,7 +78,7 @@ def restart_quiz(root, quiz_model, create_start_screen):
         current_button.pack_forget()
     current_label = quiz_model.get_questions_label()
     current_label.pack_forget()
-    quiz_model.buttons_list.clear()
+    quiz_model.restart()
     create_start_screen(root, quiz_model)
     stop_timer()
     reset_timer()
