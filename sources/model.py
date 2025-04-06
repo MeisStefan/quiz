@@ -66,6 +66,7 @@ class QuizModel:
         self.buttons_list.clear()
         self.current_question = 0
         self.score = 0
+        self.score_label.pack_forget()
 
     def load_questions(self):
         # load questions from file
@@ -98,6 +99,9 @@ class QuizModel:
         quiz_file_path = os.path.join(home_dir, QUESTIONS_FILE)
         with open(quiz_file_path, 'w', encoding='utf-8') as file:
             json.dump(quiz_questions_dict, file, ensure_ascii=False, indent=4)
+
+    def store_score_label(self, label):
+        self.score_label = label
 
 quiz_model = QuizModel()
 quiz_model.load_questions()

@@ -47,6 +47,7 @@ def display_result():
     questions_label.pack_forget()
     score_label = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions_list)), font="Arial 30")
     score_label.pack()
+    quiz_model.store_score_label(score_label)
 
 def select_answer(answer):
     global quiz_model
