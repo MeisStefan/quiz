@@ -11,6 +11,7 @@ def create_start_screen(root, quiz_model):
     startButton.pack()
 
 def start_quiz(quiz_model, root):
+    quiz_model.get_file_menu().entryconfig("Restart", state=NORMAL)
     first_question = quiz_model.questions_list[0]
     myLabel2 = Label(root, text=first_question.question, font= QUIZ_PAGE_TITLE_FONT)
     myLabel2.pack()

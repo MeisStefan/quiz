@@ -1,7 +1,7 @@
 from constants import QUIZ_QUESTIONS, QUESTIONS_FILE
 import os
 import json
-
+from tkinter.constants import DISABLED
 from quiz_question import QuizQuestion
 
 
@@ -64,9 +64,11 @@ class QuizModel:
 
     def restart(self):
         self.buttons_list.clear()
-        self.current_question = 0
         self.score = 0
-        self.score_label.pack_forget()
+        if self.current_question+1==len(self.questions_list):
+            self.score_label.pack_forget()
+        self.current_question = 0
+        self.file_menu.entryconfig("Restart", state= DISABLED)
 
     def load_questions(self):
         # load questions from file
@@ -102,6 +104,12 @@ class QuizModel:
 
     def store_score_label(self, label):
         self.score_label = label
+
+    def store_file_menu(self, Menu):
+        self.file_menu = Menu
+
+    def get_file_menu(self):
+        return self.file_menu
 
 quiz_model = QuizModel()
 quiz_model.load_questions()
