@@ -73,6 +73,7 @@ def next_question():
         display_result()
 
 def restart_quiz(root, quiz_model, create_start_screen):
+    quiz_model.get_current_question_label().pack_forget()
     for i in range(4):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
