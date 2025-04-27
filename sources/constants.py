@@ -6,6 +6,7 @@ QUIZ_PAGE_ANSWERS_FONT = "Arial 15"
 QUIZ_PAGE_ANSWERS_TITLES = ["3", "1", "4", "2"]
 QUIZ_PAGE_START_TEXT = "Christmas Quiz"
 QUIZ_PAGE_START_BUTTON = "Start"
+QUIZ_TIMEOUT = 30
 QUIZ_QUESTIONS =[QuizQuestion("In cate zile se sarbatoreste Craciunul?", ["3", "1", "4", "2"], "3", 1),
                  QuizQuestion("Care sunt culorile Craciunului?",["rosu, verde, alb", "rosu, galben, albastru", "rosu, verde", "rosu, argintiu"], "rosu, verde",  3),
                  QuizQuestion("Ce culori aveau hainele lui Mos Craciun initial?", ["Albastre", "Portocalii", "Rosii", "Verzi"], "Albastre",  1),

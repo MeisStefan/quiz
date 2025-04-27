@@ -1,7 +1,10 @@
+
+from constants import *
+
 class QuizTimer:
     def __init__(self):
         self.timer_ID = None
-        self.current_timer_seconds = 15
+        self.timeout = QUIZ_TIMEOUT
 
     def store_timer(self, timer):
         self.timer = timer
@@ -10,14 +13,14 @@ class QuizTimer:
         return self.timer
 
     def get_current_timer_seconds(self):
-        return self.current_timer_seconds
+        return self.t
 
     def decrement_current_timer_seconds(self):
-        self.current_timer_seconds -= 1
+        self.t -= 1
 
     def reset_timer(self):
-        self.current_timer_seconds = 15
-        self.timer.config(text=self.current_timer_seconds)
+        self.t = 15
+        self.timer.config(text=self.t)
 
     def get_timer_ID(self):
         return self.timer_ID
