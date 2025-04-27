@@ -36,6 +36,7 @@ def display_question():
 def display_result():
     number_of_options = 4
     global quiz_model
+    quiz_model.get_current_question_label().pack_forget()
     for i in range(number_of_options):
         current_button = quiz_model.buttons_list[i]
         current_button.pack_forget()
