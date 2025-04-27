@@ -106,6 +106,4 @@ def reset_timer():
 def show_current_question(quiz_model):
     text = "Question "
     yeeayv = str(quiz_model.get_current_question()+1)
-    current_question_label = Label(text= text + yeeayv + "/" + str(len(quiz_model.questions_list)), font="Arial 15")
-    current_question_label.pack()
-    quiz_model.store_current_question_label(current_question_label)
+    quiz_model.get_current_question_label().config(text= text + yeeayv + "/" + str(len(quiz_model.questions_list)), font="Arial 15")

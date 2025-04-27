@@ -114,5 +114,8 @@ class QuizModel:
     def store_current_question_label(self, label):
         self.current_question_label = label
 
+    def get_current_question_label(self):
+        return self.current_question_label
+
 quiz_model = QuizModel()
 quiz_model.load_questions()
