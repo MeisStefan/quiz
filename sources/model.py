@@ -111,5 +111,8 @@ class QuizModel:
     def get_file_menu(self):
         return self.file_menu
 
+    def store_current_question_label(self, label):
+        self.current_question_label = label
+
 quiz_model = QuizModel()
 quiz_model.load_questions()

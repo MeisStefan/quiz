@@ -10,25 +10,23 @@ def disable_buttons():
 
 def display_question():
     next_question()
-    # shimb numele butoanelor cu noile optiuni
     global quiz_model
     global quiz_timer
+    show_current_question(quiz_model)
 
     current_question_index = quiz_model.get_current_question()
     current_question = quiz_model.questions_list[current_question_index]
     current_question_answers = current_question.answers
-    # reactivez butoanele
+
     for i in range(len(current_question_answers)):
         current_button = quiz_model.buttons_list[i]
         current_button.config(text = current_question_answers[i])
         current_button.config(state = NORMAL)
-
-        # decolorez toate butoanele
         current_button.config(disabledforeground = "gray")
 
-    # schimb numele intrebarii
     question_label = quiz_model.get_questions_label()
     question_label.config(text = quiz_model.get_current_question_text())
+
     reset_timer()
     if current_question_index <= len(quiz_model.questions_list) - 1:
         start_timer()
@@ -104,3 +102,10 @@ def stop_timer():
 def reset_timer():
     global quiz_timer
     quiz_timer.reset_timer()
+
+def show_current_question(quiz_model):
+    text = "Question "
+    yeeayv = str(quiz_model.get_current_question()+1)
+    current_question_label = Label(text= text + yeeayv + "/" + str(len(quiz_model.questions_list)), font="Arial 15")
+    current_question_label.pack()
+    quiz_model.store_current_question_label(current_question_label)
