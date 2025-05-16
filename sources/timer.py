@@ -13,14 +13,14 @@ class QuizTimer:
         return self.timer
 
     def get_current_timer_seconds(self):
-        return self.t
+        return self.current_timer_seconds
 
     def decrement_current_timer_seconds(self):
-        self.t -= 1
+        self.current_timer_seconds -= 1
 
     def reset_timer(self):
-        self.t = 15
-        self.timer.config(text=self.t)
+        self.current_timer_seconds = 15
+        self.timer.config(text=self.current_timer_seconds)
 
     def get_timer_ID(self):
         return self.timer_ID
