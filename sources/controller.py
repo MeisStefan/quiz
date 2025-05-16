@@ -47,6 +47,7 @@ def display_result():
     score_label = Label(text= label_text + str(score) + "/" + str(len(quiz_model.questions_list)), font="Arial 30")
     score_label.pack()
     quiz_model.store_score_label(score_label)
+    quiz_model.get_file_menu().entryconfig("Admin", state=NORMAL)
 
 def select_answer(answer):
     global quiz_model
@@ -84,6 +85,7 @@ def restart_quiz(root, quiz_model, create_start_screen):
     stop_timer()
     reset_timer()
     quiz_timer.hide_timer()
+    quiz_model.get_file_menu().entryconfig("Admin", state=NORMAL)
 
 def start_timer():
     global quiz_timer
