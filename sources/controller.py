@@ -48,6 +48,8 @@ def display_result():
     score_label.pack()
     quiz_model.store_score_label(score_label)
     quiz_model.get_file_menu().entryconfig("Admin", state=NORMAL)
+    main_window = quiz_model.get_main_window()
+    quiz_timer.get_timer().after(15000, main_window.destroy)
 
 def select_answer(answer):
     global quiz_model
@@ -109,5 +111,5 @@ def reset_timer():
 
 def show_current_question(quiz_model):
     text = "Question "
-    yeeayv = str(quiz_model.get_current_question()+1)
-    quiz_model.get_current_question_label().config(text= text + yeeayv + "/" + str(len(quiz_model.questions_list)), font="Arial 15")
+    current_question_text = str(quiz_model.get_current_question()+1)
+    quiz_model.get_current_question_label().config(text= text + current_question_text + "/" + str(len(quiz_model.questions_list)), font="Arial 15")

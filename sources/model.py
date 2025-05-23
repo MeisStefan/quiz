@@ -12,6 +12,12 @@ class QuizModel:
         self.current_question = 0
         self.questions_list = QUIZ_QUESTIONS
 
+    def store_main_window(self, main_window):
+        self.main_window = main_window
+
+    def get_main_window(self):
+        return self.main_window
+
     def store_questions_label(self, label):
         self.questions_label = label
 
