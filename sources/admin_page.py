@@ -1,3 +1,4 @@
+from functools import partial
 from tkinter import *
 from tkinter import ttk
 from model import *
@@ -70,15 +71,19 @@ def create_admin_page(quiz_model):
 
     admin_window.mainloop()
 
-
 def create_new_question(tree):
     new_window = Toplevel()
     new_window.title("Add New Question")
     new_window.geometry("500x300")
 
+    correct_answer_index = 1
+
     Label(new_window, text="Question:", font="Arial 12").pack()
     question_entry = Entry(new_window, font="Arial 12", width=50)
     question_entry.pack()
+
+    def change_correct_answer_index(event, correct_answer_index):
+        print("Correct"+str(correct_answer_index))
 
     answer_entries = []
     for i in range(4):
@@ -86,6 +91,7 @@ def create_new_question(tree):
         entry = Entry(new_window, font="Arial 12", width=50)
         entry.pack()
         answer_entries.append(entry)
+        entry.bind("<Button-3>", partial(change_correct_answer_index, correct_answer_index=i))
 
     def save_question():
         question_title = question_entry.get()
