@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-
+from model import *
 
 def create_admin_page(quiz_model):
     admin_window = Tk()
@@ -88,9 +88,11 @@ def create_new_question(tree):
         answer_entries.append(entry)
 
     def save_question():
-        question = question_entry.get()
+        question_title = question_entry.get()
         options = [entry.get() for entry in answer_entries]
-        tree.insert("", "end", values=(question, *options))
+        tree.insert("", "end", values=(question_title, *options))
         new_window.destroy()
+        new_question = QuizQuestion(question_title, options, "0", 0)
+        quiz_model.questions_list.append(new_question)
 
     Button(new_window, text="Save", font="Arial 12", command=save_question).pack(pady=10)
