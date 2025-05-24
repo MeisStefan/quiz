@@ -71,19 +71,20 @@ def create_admin_page(quiz_model):
 
     admin_window.mainloop()
 
+correct_answer_index = 1
+
 def create_new_question(tree):
     new_window = Toplevel()
     new_window.title("Add New Question")
     new_window.geometry("500x300")
 
-    correct_answer_index = 1
-
     Label(new_window, text="Question:", font="Arial 12").pack()
     question_entry = Entry(new_window, font="Arial 12", width=50)
     question_entry.pack()
 
-    def change_correct_answer_index(event, correct_answer_index):
-        print("Correct"+str(correct_answer_index))
+    def change_correct_answer_index(event, selected_correct_answer_index):
+        global correct_answer_index
+        correct_answer_index = selected_correct_answer_index+1
 
     answer_entries = []
     for i in range(4):
@@ -91,14 +92,14 @@ def create_new_question(tree):
         entry = Entry(new_window, font="Arial 12", width=50)
         entry.pack()
         answer_entries.append(entry)
-        entry.bind("<Button-3>", partial(change_correct_answer_index, correct_answer_index=i))
+        entry.bind("<Button-3>", partial(change_correct_answer_index, selected_correct_answer_index=i))
 
     def save_question():
         question_title = question_entry.get()
         options = [entry.get() for entry in answer_entries]
         tree.insert("", "end", values=(question_title, *options))
         new_window.destroy()
-        new_question = QuizQuestion(question_title, options, "0", 1)
+        new_question = QuizQuestion(question_title, options, "0", correct_answer_index)
         quiz_model.questions_list.append(new_question)
 
     Button(new_window, text="Save", font="Arial 12", command=save_question).pack(pady=10)
