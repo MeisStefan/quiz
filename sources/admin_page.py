@@ -39,6 +39,9 @@ def create_admin_page(quiz_model):
         question_entry.insert(0, values[0])
         question_entry.pack()
 
+        def change_correct_answer_index_of_question(event, selected_correct_answer_index):
+            quiz_model.change_correct_answer_index(values[0], selected_correct_answer_index)
+
         answer_entries = []
         for current_answer_index in range(4):
             correct_answer_index = quiz_model.get_correct_answer_index(question_index=tree.index(tree.selection()))
@@ -49,6 +52,7 @@ def create_admin_page(quiz_model):
             entry = Entry(edit_window, font="Arial 12",fg=text_color, width=50)
             entry.insert(0, values[current_answer_index + 1])
             entry.pack()
+            entry.bind("<Button-3>", partial(change_correct_answer_index_of_question, selected_correct_answer_index=current_answer_index))
             answer_entries.append(entry)
 
         def save_edit():

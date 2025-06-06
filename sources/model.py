@@ -68,6 +68,9 @@ class QuizModel:
         question = self.questions_list[question_index]
         return question.correct_answer_index-1
 
+    def change_correct_answer_index(self, question_title, new_correct_answer_index):
+        print("schimbat intrebarea "+ question_title+" noul index al raspunsului corect"+ str(new_correct_answer_index))
+
     def restart(self):
         self.buttons_list.clear()
         self.score = 0
