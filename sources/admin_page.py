@@ -25,7 +25,7 @@ def create_admin_page(quiz_model):
     tree.pack(fill=BOTH, expand=True)
 
     for quiz_question in quiz_model.questions_list:
-        tree.insert("", "end", values=(quiz_question.question, *quiz_question.answers))
+        tree.insert("", "end", values=(quiz_question.question_title, *quiz_question.answers))
 
     def edit_item(event):
         selected_item = tree.selection()[0]
@@ -41,15 +41,21 @@ def create_admin_page(quiz_model):
 
         def change_correct_answer_index_of_question(event, selected_correct_answer_index):
             quiz_model.change_correct_answer_index(values[0], selected_correct_answer_index)
+            correct_answer_entry = answer_entries[selected_correct_answer_index]
+            for i in range(len(answer_entries)):
+                answer_entries[i].config(fg="black")
+                correct_answer_entry.config(fg="green")
+
+
 
         answer_entries = []
         for current_answer_index in range(4):
             correct_answer_index = quiz_model.get_correct_answer_index(question_index=tree.index(tree.selection()))
             Label(edit_window, text=f"Option {current_answer_index + 1}:", font="Arial 12").pack()
-            text_color = "black"
+            text_color_at_entry_creation = "black"
             if correct_answer_index == current_answer_index:
-                text_color = "green"
-            entry = Entry(edit_window, font="Arial 12",fg=text_color, width=50)
+                text_color_at_entry_creation = "green"
+            entry = Entry(edit_window, font="Arial 12",fg=text_color_at_entry_creation, width=50)
             entry.insert(0, values[current_answer_index + 1])
             entry.pack()
             entry.bind("<Button-3>", partial(change_correct_answer_index_of_question, selected_correct_answer_index=current_answer_index))

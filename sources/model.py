@@ -54,10 +54,10 @@ class QuizModel:
 
     def get_current_question_text(self):
         current_question = self.questions_list[self.current_question]
-        return current_question.question
+        return current_question.question_title
 
     def update_question_text(self, new_question_name, new_question_index):
-        self.questions_list[new_question_index].question = new_question_name
+        self.questions_list[new_question_index].question_title = new_question_name
 
     def update_answers_text(self, new_answers_name, new_question_index):
         for i in range(4):
@@ -70,7 +70,7 @@ class QuizModel:
 
     def change_correct_answer_index(self, question_title, new_correct_answer_index):
         for question_index in range(len(self.questions_list)):
-            if self.questions_list[question_index].question == question_title:
+            if self.questions_list[question_index].question_title == question_title:
                 self.questions_list[question_index].correct_answer_index = new_correct_answer_index+1
 
     def restart(self):
@@ -97,7 +97,7 @@ class QuizModel:
                 json.dump(quiz_questions_dict, file, ensure_ascii=False, indent=4)
 
         self.questions_list = [QuizQuestion(
-            question=q["question"],
+            question_title=q["question"],
             answers=q["answers"],
             correct_answer=q["correct_answer"],
             correct_answer_index=q["correct_answer_index"]
