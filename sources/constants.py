@@ -1,4 +1,6 @@
 from quiz_question import *
+DELETE_QUESTION_CONFIRMATION_TITLE = "Confirmare"
+DELETE_QUESTION_CONFIRMATION_MESSAGE = "Vrei sa stergi aceasta intrebare?"
 QUIZ_PAGE_START_FONT = "Arial 25"
 QUIZ_PAGE_TITLE_FONT = "Arial 20"
 QUIZ_PAGE_TITLE = "In cate zile se sarbatoreste Craciunul?"

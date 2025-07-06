@@ -1,7 +1,9 @@
 from functools import partial
 from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 from model import *
+from constants import *
 
 def create_admin_page(quiz_model):
     admin_window = Tk()
@@ -73,8 +75,10 @@ def create_admin_page(quiz_model):
 
     tree.bind("<Double-1>", edit_item)
     def delete_question(event):
-        selected_item = tree.identify_row(event.y)
-        tree.delete(selected_item)
+        response = messagebox.askyesno(DELETE_QUESTION_CONFIRMATION_TITLE, DELETE_QUESTION_CONFIRMATION_MESSAGE, parent=admin_window)
+        if response:
+            selected_item = tree.identify_row(event.y)
+            tree.delete(selected_item)
     tree.bind("<Button-3>", delete_question)
 
     new_question_button = Button(admin_window, text="Press for new question", font="Arial 16",
