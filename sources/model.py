@@ -45,6 +45,12 @@ class QuizModel:
     def get_current_question(self):
         return self.current_question
 
+    def delete_question(self, question_title):
+        for index in range(len(self.questions_list)):
+            if self.questions_list[index].question_title == question_title:
+                self.questions_list.pop(index)
+                break
+
     def increment_current_question(self):
         self.current_question +=1
 

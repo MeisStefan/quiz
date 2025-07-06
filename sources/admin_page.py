@@ -78,6 +78,9 @@ def create_admin_page(quiz_model):
         response = messagebox.askyesno(DELETE_QUESTION_CONFIRMATION_TITLE, DELETE_QUESTION_CONFIRMATION_MESSAGE, parent=admin_window)
         if response:
             selected_item = tree.identify_row(event.y)
+            values = tree.item(selected_item, "values")
+            question_title = values[0]
+            quiz_model.delete_question(question_title)
             tree.delete(selected_item)
     tree.bind("<Button-3>", delete_question)
 
