@@ -46,8 +46,6 @@ def create_admin_page(quiz_model):
                 answer_entries[i].config(fg="black")
                 correct_answer_entry.config(fg="green")
 
-
-
         answer_entries = []
         for current_answer_index in range(4):
             correct_answer_index = quiz_model.get_correct_answer_index(question_index=tree.index(tree.selection()))
@@ -74,6 +72,10 @@ def create_admin_page(quiz_model):
         Button(edit_window, text="Save", font="Arial 12", command=save_edit).pack(pady=10)
 
     tree.bind("<Double-1>", edit_item)
+    def delete_question(event):
+        selected_item = tree.identify_row(event.y)
+        tree.delete(selected_item)
+    tree.bind("<Button-3>", delete_question)
 
     new_question_button = Button(admin_window, text="Press for new question", font="Arial 16",
                                  command=lambda: create_new_question(tree))
